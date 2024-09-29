@@ -5,7 +5,7 @@ source myenv/bin/activate
 ```
 2. install the requirements.txt
    ```bash
-   pip3 install requirements.txt
+   pip3 install -r requirements.txt
    ```  
    
 3.
