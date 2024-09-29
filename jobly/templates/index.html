@@ -1,0 +1,110 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Jobly Home Page</title>
+  <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+
+<body>
+  <header>
+    <h1>
+      <image style="height:200px; width: 200px;margin-right: 5%; padding-top: 10px;"
+        src="{% static 'tumblr_fd0d47b007089eab015265ea33709636_7e4ceab1_400.gif' %}" alt="Jobly Logo" />
+
+      Welcome to Jobly
+    </h1>
+
+    <nav>
+      <ul>
+        <li><a href="">Home</a></li>
+        <li><a href="about/">About</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+
+    <form class="job-form" id="resume-form" method="POST" enctype="multipart/form-data"
+      onsubmit="handleFormSubmit(event)">
+      {% csrf_token %}
+      <label for="job_title">Job Title:</label>
+      <input type="text" id="job_title" name="job_title" required>
+
+      <label for="resume">Upload your resume:</label>
+      <input type="file" id="resume" name="resume" required>
+
+      <label for="resume" class="custom-file-upload">
+        Browse
+      </label>
+      <span id="file-name">No file chosen</span>
+
+      <script>
+        document.getElementById('resume').addEventListener('change', function () {
+          const fileName = this.files[0] ? this.files[0].name : 'No file chosen';
+          document.getElementById('file-name').textContent = fileName;
+        });
+      </script>
+
+      <br /><br /><button type="submit">Submit</button>
+    </form>
+    <style>
+      #SkillDifference,
+      #NJITCourse,
+      #Coursera,
+      #response-message {
+        text-decoration: none;
+        list-style-type: none;
+        color: black;
+        font-weight: bold;
+      }
+    </style>
+    <div id="SkillDifference"></div>
+    <div id="NJITCourse"></div>
+    <div id="Coursera"></div>
+    <div id="response-message"></div><!-- For feedback messages -->
+
+    <script>
+      function handleFormSubmit(event) {
+        event.preventDefault(); // Prevent the default form submission
+
+        const form = document.getElementById('resume-form');
+        const formData = new FormData(form);
+        const submitButton = form.querySelector('button');
+
+        submitButton.disabled = true; // Disable the button to prevent multiple submissions
+
+        fetch('/upload', {
+          method: 'POST',
+          body: formData
+        })
+          .then(response => {
+            if (!response.ok) {
+              throw new Error('Network response was not ok ' + response.statusText);
+            }
+            return response.json(); // Attempt to parse JSON
+          })
+          .then(data => {
+            console.log('Received data:', data); // Log the received data
+            const skillsList = data.diff.map(skill => `<li>${skill}</li>`).join('');
+            const NJITCourse = data.courses_with_skills.map(njitcourse => `<li>${njitcourse}</li>`).join('');
+            const Coursera = data.data1.map(course => `<li><a href = ${course.video_link}/>${course.title} </li>`).join('');
+            document.getElementById('SkillDifference').innerHTML = `<p>Your Missing Skills: ${skillsList}</p>`;
+            document.getElementById('NJITCourse').innerHTML = `<p>NJIT Courses available:  ${NJITCourse}</p>`;
+            document.getElementById('Coursera').innerHTML = `<p>Coursera Learning: ${Coursera}</p>`;
+          })
+          .catch(error => {
+            document.getElementById('response-message').innerHTML = `<p>Error: ${error.message}</p>`;
+          })
+          .finally(() => {
+            submitButton.disabled = false; // Re-enable the button
+          });
+      }
+    </script>
+
+  </main>
+
+</body>
+</html>

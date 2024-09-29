@@ -1,0 +1,176 @@
+/* Base styles */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+/* Slide-in animation */
+@keyframes slideIn {
+  from {
+    transform: translateX(-100%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+/* Color change animation */
+
+@keyframes shine {
+  0% {
+    background-position: -200%;
+  }
+
+  100% {
+    background-position: 200%;
+  }
+}
+
+/* Bounce animation */
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-20px);
+  }
+}
+/* Navigation list item styles */
+nav li {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: inline;
+  font-size: larger;
+}
+body {
+  font-size: 1.5em;
+
+  background: linear-gradient(120deg, #f0a3ed, #addaa7, #d0b4f6);
+
+  font-weight: bold;
+  text-align: justify;
+}
+
+/* Header styles */
+header {
+  color: #fff;
+  padding: 10px 0;
+  text-align: center;
+}
+
+/* Navigation styles */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 0 20px;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  align-items: left;
+}
+
+nav ul li {
+  font-size: larger;
+}
+
+nav a {
+  color: black;
+  padding: 14px 20px;
+  text-decoration: none;
+  text-align: center;
+}
+
+nav a:hover {
+  background: linear-gradient(120deg, #fa7af4, #f952db, #9b57fb);
+}
+
+/* Main content styles */
+main {
+  padding: 20px;
+}
+
+/* Footer styles */
+footer {
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+
+  position: bottom;
+}
+#SkillDifference {
+  align-items: center;
+  color: red;
+}
+
+/* Apply the combined animations to the header */
+h1 {
+  animation: fadeIn 2s ease-in-out, /* Fade-in animation */ slideIn 2s ease-out,
+    /* Slide-in animation */ colorChange 3s infinite,
+    /* Color change animation */ bounce 2s infinite, shine 4s infinite linear;
+  /* Bounce animation */
+  font-size: 3em;
+  text-align: center;
+  margin-top: 50px;
+  padding: 10px;
+  background: linear-gradient(120deg, #f805ec, #152b25, #5305fb);
+  font-size: 3em;
+  font-weight: bold;
+  color: #f9f9f9;
+  /* Fallback color */
+  background-size: 200%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  /* Makes text color transparent to show the background gradient */
+
+  text-align: center;
+  margin-top: 100px;
+}
+
+#resume {
+  display: none;
+  /* Hide the default file input */
+}
+
+/* Style the custom button */
+.custom-file-upload {
+  animation: 
+    /* Fade-in animation */ /* Slide-in animation */ colorChange 3s
+    infinite;
+
+  display: inline-block;
+  font-size: 20px;
+
+  cursor: pointer;
+  background: linear-gradient(120deg, #fa7af4, #f952db, #9b57fb);
+}
+
+button {
+  background: linear-gradient(120deg, #fa7af4, #f952db, #9b57fb);
+  border: none;
+  font-size: 20px;
+  font-weight: bold;
+
+  height: 40px;
+  width: 80px;
+}
+.job-form {
+  align-items: center;
+  justify-content: center;
+  margin-top: 50px;
+}

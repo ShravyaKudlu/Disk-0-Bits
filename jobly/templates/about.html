@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Jobly</title>
+  <link rel="stylesheet" href="styles.css"> <!-- Link to a CSS file for styling -->
+</head>
+<style>
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+
+  /* Slide-in animation */
+  @keyframes slideIn {
+    from {
+      transform: translateX(-100%);
+    }
+
+    to {
+      transform: translateX(0);
+    }
+  }
+
+  /* Color change animation */
+
+  @keyframes shine {
+    0% {
+      background-position: -200%;
+    }
+
+    100% {
+      background-position: 200%;
+    }
+  }
+
+  /* Bounce animation */
+  @keyframes bounce {
+
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+
+    50% {
+      transform: translateY(-20px);
+    }
+  }
+
+  /* Apply the combined animations to the header */
+  h1 {
+    animation: fadeIn 2s ease-in-out,
+      /* Fade-in animation */
+      slideIn 2s ease-out,
+      /* Slide-in animation */
+      colorChange 3s infinite,
+      /* Color change animation */
+      bounce 2s infinite,
+      shine 4s infinite linear;
+    /* Bounce animation */
+    font-size: 3em;
+    text-align: center;
+    margin-top: 50px;
+    padding: 10px;
+    background: linear-gradient(120deg, #f805ec, #152b25, #5305fb);
+    font-size: 3em;
+    font-weight: bold;
+
+    /* Fallback color */
+    background-size: 200%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    /* Makes text color transparent to show the background gradient */
+
+    text-align: center;
+    margin-top: 100px;
+  }
+
+
+  body {
+
+
+    font-size: 1.75em;
+
+    background: linear-gradient(120deg, #f0a3ed, #addaa7, #d0b4f6);
+
+    font-weight: bold;
+
+
+  }
+
+  .card-container {
+    display: flex;
+    /* Use flexbox for layout */
+    flex-wrap: wrap;
+    /* Allow cards to wrap to the next line */
+    justify-content: space-around;
+    /* Distribute space between cards */
+  }
+
+  .card {
+
+    background-color: white;
+    /* Card background color */
+    border: 1px solid #ccc;
+    /* Card border */
+    border-radius: 5px;
+    /* Rounded corners */
+    width: 200px;
+    /* Fixed width for cards */
+    margin: 10px;
+    /* Margin between cards */
+    padding: 15px;
+    /* Inner padding */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    /* Shadow effect */
+    text-align: center;
+    /* Center align text */
+    color: white;
+    animation: fadeIn 2s ease-in-out,
+      /* Fade-in animation */
+      slideIn 2s ease-out,
+      /* Slide-in animation */
+      colorChange 3s infinite,
+      /* Color change animation */
+      bounce 2s infinite,
+      shine 4s infinite linear;
+
+    background: linear-gradient(120deg, #db81d8, #abe2a4, #d0b4f6);
+  }
+
+  .card h3 {
+    margin: 0 0 10px;
+    /* Margin for heading */
+  }
+
+  .card p {
+    margin: 5px 0;
+    /* Margin for paragraph */
+  }
+
+  a {
+    color: white;
+  }
+</style>
+<body>
+
+
+  <header>
+    <h1>About Jobly</h1>
+  </header>
+
+  <main>
+    <section>
+      <h2>What is Jobly?</h2>
+      <p>
+        Jobly is an innovative platform designed to help students enhance their employability by providing personalized
+        recommendations based on their resumes. Our application analyzes your existing skills and qualifications,
+        identifies gaps, and suggests relevant courses and resources to help you achieve your career goals.
+      </p>
+    </section>
+
+    <section class="about">
+      <h2>How It Works</h2>
+      <ol>
+        <li>
+          <strong>Upload Your Resume:</strong> Simply upload your resume in PDF format. Our intelligent algorithm will
+          extract and analyze the content to identify your current skills and qualifications.
+        </li>
+        <li>
+          <strong>Skill Gap Analysis:</strong> Jobly compares your skills against industry standards and job
+          requirements. We highlight gaps in the skills you possess.
+        </li>
+        <li>
+          <strong>Course Recommendations:</strong> Based on the identified skill gaps, Jobly suggests relevant courses
+          you can take available in your university.
+        </li>
+        <li>
+          <strong>Coursera Courses:</strong> To ensure you have access to high-quality learning resources, Jobly also
+          provides recommendations for online courses available on platforms like Coursera.
+        </li>
+      </ol>
+    </section>
+    <h2>Meet Our Team</h2>
+    <div class="card-container">
+
+
+      <div class="card"><strong>Shravya Kudlu</strong><br> <a href="www.linkedin.com/in/shravya-kudlu"> LinkedIn </a>
+      </div>
+      <div class="card"><strong>Sharan Shivram</strong><br> <a href="www.linkedin.com/in/sharan2001"> LinkedIn </a>
+      </div>
+      <div class="card"><strong>Netra Shaligram</strong><br> <a href="www.linkedin.com/in/netra19"> LinkedIn </a> </div>
+      <div class="card"><strong>Mayura Rangarajan</strong><br> <a href="www.linkedin.com/in/mayura-rangarajan"> LinkedIn
+        </a></div>
+    </div>
+
+
+  </main>
+
+
+</body>
+
+</html>
