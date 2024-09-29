@@ -1,0 +1,6 @@
+requests
+PyMuPDF
+pandas
+beautifulsoup4
+yake
+django
